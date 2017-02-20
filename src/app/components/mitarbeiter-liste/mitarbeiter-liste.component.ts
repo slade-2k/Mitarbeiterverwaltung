@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mitarbeiter } from './../../models/mitarbeiter';
 import { MitarbeiterService } from './../../services/mitarbeiter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mitarbeiter-liste',
@@ -11,7 +12,10 @@ export class MitarbeiterListeComponent implements OnInit {
 
   private mitarbeiterListe: Mitarbeiter[] = [];
 
-  constructor(private mitarbeiterService: MitarbeiterService) { }
+  constructor(
+    private mitarbeiterService: MitarbeiterService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.mitarbeiterService.holeAlleMitarbeiter()
@@ -22,5 +26,12 @@ export class MitarbeiterListeComponent implements OnInit {
       });
   }
 
+  public bearbeiteMitarbeiter(id: number) {
+    this.router.navigateByUrl('/bearbeiten/' + id);
+  }
+
+  public zeigeMitarbeiter(id: number) {
+    this.router.navigateByUrl('/anzeigen/' + id);
+  }
 
 }

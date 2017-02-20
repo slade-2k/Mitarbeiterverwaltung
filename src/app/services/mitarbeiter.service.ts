@@ -24,10 +24,20 @@ export class MitarbeiterService {
       .map(res => res.json());
   }
   
+  public holeMitarbeiterMitId(id: number) {
+    return this.http
+      .get(this.backendUrl + '/mitarbeiter/' + id + '.json', this.requestOptions)
+      .map(res => res.json());
+  }
+
   public erstelleMitarbeiter(mitarbeiter: Mitarbeiter) {
     return this.http
       .post(this.backendUrl + '/mitarbeiter.json', JSON.stringify(mitarbeiter), this.requestOptions);
   }
 
-
+  public aktualisiereMitarbeiter(mitarbeiter: Mitarbeiter) {
+    return this.http
+      .put(this.backendUrl + '/mitarbeiter/' + mitarbeiter.id + '.json', JSON.stringify(mitarbeiter),
+          this.requestOptions);
+  }
 }
