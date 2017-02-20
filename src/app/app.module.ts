@@ -10,11 +10,13 @@ import { MitarbeiterService } from './services/mitarbeiter.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MitarbeiterFormularComponent } from './components/mitarbeiter-formular/mitarbeiter-formular.component';
+import { MitarbeiterAnzeigeComponent } from './components/mitarbeiter-anzeige/mitarbeiter-anzeige.component';
 
 const appRoutes: Routes = [
   { path: '', component: MitarbeiterListeComponent },
   { path: 'anlegen', component: MitarbeiterFormularComponent },
-  { path: 'bearbeiten/:id', component: MitarbeiterFormularComponent }
+  { path: 'bearbeiten/:id', component: MitarbeiterFormularComponent },
+  { path: 'anzeigen/:id', component: MitarbeiterAnzeigeComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     MitarbeiterListeComponent,
     NavbarComponent,
-    MitarbeiterFormularComponent
+    MitarbeiterFormularComponent,
+    MitarbeiterAnzeigeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

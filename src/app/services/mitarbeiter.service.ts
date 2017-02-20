@@ -23,7 +23,7 @@ export class MitarbeiterService {
       .get(this.backendUrl + '/mitarbeiter.json', this.requestOptions)
       .map(res => res.json());
   }
-  
+
   public holeMitarbeiterMitId(id: number) {
     return this.http
       .get(this.backendUrl + '/mitarbeiter/' + id + '.json', this.requestOptions)
@@ -40,4 +40,5 @@ export class MitarbeiterService {
       .put(this.backendUrl + '/mitarbeiter/' + mitarbeiter.id + '.json', JSON.stringify(mitarbeiter),
           this.requestOptions);
   }
+
 }
