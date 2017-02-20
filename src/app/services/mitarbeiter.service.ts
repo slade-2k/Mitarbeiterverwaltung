@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Mitarbeiter } from './../models/mitarbeiter';
 
 import 'rxjs/add/operator/map';
 
@@ -22,5 +23,11 @@ export class MitarbeiterService {
       .get(this.backendUrl + '/mitarbeiter.json', this.requestOptions)
       .map(res => res.json());
   }
+  
+  public erstelleMitarbeiter(mitarbeiter: Mitarbeiter) {
+    return this.http
+      .post(this.backendUrl + '/mitarbeiter.json', JSON.stringify(mitarbeiter), this.requestOptions);
+  }
+
 
 }
