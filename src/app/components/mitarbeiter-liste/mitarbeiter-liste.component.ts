@@ -34,4 +34,15 @@ export class MitarbeiterListeComponent implements OnInit {
     this.router.navigateByUrl('/anzeigen/' + id);
   }
 
+  public loescheMitarbeiter(id: number, idx: number) {
+    let mitarbeiter: Mitarbeiter = this.mitarbeiterListe[idx];
+    
+    if (confirm(mitarbeiter.name + ' wirklich löschen? ')) {
+      this.mitarbeiterService.loescheMitarbeiter(id)
+        .subscribe(res => {
+          this.mitarbeiterListe.splice(idx, 1);
+        });
+    }
+  }
+
 }

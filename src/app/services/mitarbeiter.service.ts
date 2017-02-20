@@ -41,4 +41,9 @@ export class MitarbeiterService {
           this.requestOptions);
   }
 
+  public loescheMitarbeiter(id: number) {
+    return this.http
+      .delete(this.backendUrl + '/mitarbeiter/' + id + '.json', this.requestOptions);
+  }
+
 }
