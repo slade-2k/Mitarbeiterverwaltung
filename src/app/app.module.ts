@@ -8,23 +8,15 @@ import { MitarbeiterListeComponent } from './components/mitarbeiter-liste/mitarb
 import { MitarbeiterService } from './services/mitarbeiter.service';
 
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { MitarbeiterFormularComponent } from './components/mitarbeiter-formular/mitarbeiter-formular.component';
-
-const appRoutes: Routes = [
-  { path: '', component: MitarbeiterListeComponent },
-  { path: 'anlegen', component: MitarbeiterFormularComponent }
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     MitarbeiterListeComponent,
-    NavbarComponent,
     MitarbeiterFormularComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     HttpModule
